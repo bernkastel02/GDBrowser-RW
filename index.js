@@ -47,13 +47,13 @@ app.listen((app.gdb_config["express"])
     // successful test
     if (process.argv[2] == "--gdb-test") return process.exit(0);
 })
-
 /* WARNING: Don't edit below unless you really know what you're doing! */
 async function loadConfig() {
     let config = Util.resolveFiles(`${__dirname}/config/`, 
     [   
         // Express Configuration
-        "express.js", 
+        "express.js",
+        (process.argv[2] == "--gdb-test") ? "express.example.js" : undefined // force use example if travis-ci testing
     ]);
     
     for (var i = 0; i < config.length; i++) {
