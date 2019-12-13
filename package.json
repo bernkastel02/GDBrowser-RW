@@ -1,0 +1,27 @@
+{
+  "name": "gdbrowser",
+  "version": "1.0.0",
+  "description": "gdbrowser",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "pug": "^2.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/memimoe/GDBrowser-RW.git"
+  },
+  "author": "Memi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/memimoe/GDBrowser-RW/issues"
+  },
+  "homepage": "https://github.com/memimoe/GDBrowser-RW#readme"
+}

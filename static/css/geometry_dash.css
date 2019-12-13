@@ -1,0 +1,12 @@
+.gdButton {
+    cursor: pointer;
+    z-index: 1;
+    user-select: none;
+    pointer-events: all;
+}
+
+.gdButton:active {
+    transition-duration: 0.07s;
+    transition-timing-function: ease-in-out;
+    transform: scale(1.08);
+}

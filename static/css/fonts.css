@@ -1,0 +1,13 @@
+/* Pusab */
+@font-face {
+    font-family: "Pusab";
+    src: url("/assets/fonts/Pusab.eot"); /* IE9 Compat Modes */
+    src: url("/assets/fonts/fonts/Pusab.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+      url("/assets/fonts/fonts/Pusab.otf") format("opentype"), /* Open Type Font */
+      url("/assets/fonts/fonts/Pusab.svg") format("svg"), /* Legacy iOS */
+      url("/assets/fonts/fonts/Pusab.ttf") format("truetype"), /* Safari, Android, iOS */
+      url("/assets/fonts/fonts/Pusab.woff") format("woff"), /* Modern Browsers */
+      url("/assets/fonts/fonts/Pusab.woff2") format("woff2"); /* Modern Browsers */
+    font-weight: normal;
+    font-style: normal;
+  }
