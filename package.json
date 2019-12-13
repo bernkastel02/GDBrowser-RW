@@ -10,7 +10,9 @@
     "express": "^4.17.1",
     "pug": "^2.0.4"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "request": "^2.88.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/memimoe/GDBrowser-RW.git"
@@ -22,6 +24,6 @@
   },
   "homepage": "https://github.com/memimoe/GDBrowser-RW#readme",
   "scripts": {
-    "test": "node"
+    "test": "node test/test-gdb.js"
   }
 }

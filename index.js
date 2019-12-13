@@ -43,6 +43,9 @@ app.listen((app.gdb_config["express"])
 ? app.gdb_config["express"].port // use port if example config was correctly edited
 : Util.throwError(new SyntaxError("Express configuration not found.")), () => {
     console.log("express server ready");
+
+    // successful test
+    if (process.argv[2] == "--gdb-test") return process.exit(0);
 })
 
 /* WARNING: Don't edit below unless you really know what you're doing! */
