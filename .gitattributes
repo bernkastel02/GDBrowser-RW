@@ -1,2 +1,2 @@
-*.pug linguist-languages=Jade
-*.pug linguist-vendored=false
+*.pug linguist-language=Pug
+*.pug linguist-vendored=true
