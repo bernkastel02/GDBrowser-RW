@@ -3,8 +3,8 @@ This project is a full back-end & front-end rewrite of [GDBrowser](https://githu
 
 This project primarily attempts to improve, and add more to the original code; as well.
 
-# Installation
+### Installation
 I personally will not help anyone with personal installation, as this is more of a built personal project; than to be one truly for "general purposes". Contributions are accepted, as long as you know how to install and setup this codebase yourself. Eventually, I will create instructions for how to use this in a general environment, but that's not in the foreseeable future at the moment.
 
-# Links & Resources
+### Links & Resources
 - [GDBrowser](https://github.com/GDColon/GDBrowser)
