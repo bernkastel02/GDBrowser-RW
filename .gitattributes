@@ -1,2 +1,3 @@
 # Pug files
 *.pug linguist-language=Pug
+*.pug linguist-vendored=Pug
