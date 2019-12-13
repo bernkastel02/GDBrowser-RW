@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/memimoe/GDBrowser-RW/issues"
   },
-  "homepage": "https://github.com/memimoe/GDBrowser-RW#readme"
+  "homepage": "https://github.com/memimoe/GDBrowser-RW#readme",
+  "scripts": {
+    "test": "node"
+  }
 }
