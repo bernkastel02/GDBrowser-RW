@@ -1,10 +1,10 @@
 const path = require("path");
 const fs = require("fs");
-const Util = require(path.resolve(`${__dirname}/lib/util/Util`))
+const Util = require(path.resolve(`${__dirname}/lib/util/Util`));
 
 // Application & all setup
 const app = require("express")();
-app.gdb_config = {}
+app.gdb_config = {};
 
 // static files
 app.use("/assets", require("express").static(path.resolve(`${__dirname}/static`)));
@@ -22,7 +22,7 @@ fs.readdir(path.resolve(`${__dirname}/routers`), (err, files) => {
 
         app.use(router.path || "/", router);
     })
-})
+});
 
 // set locals
 app.use((req, res, next) => {
@@ -30,7 +30,7 @@ app.use((req, res, next) => {
     res.locals.require = require;
     res.locals.__dirname = __dirname;
     next()
-})
+});
 
 // settings
 app.set("json spaces", 4);
@@ -45,18 +45,18 @@ app.listen((app.gdb_config["express"])
     console.log("express server ready");
 
     // successful test
-    if (process.argv[2] == "--gdb-test") return process.exit(0);
-})
+    if (process.argv[2] === "--gdb-test") return process.exit(0);
+});
 /* WARNING: Don't edit below unless you really know what you're doing! */
 async function loadConfig() {
     let config = Util.resolveFiles(`${__dirname}/config/`, 
     [   
         // Express Configuration
         "express.js",
-        (process.argv[2] == "--gdb-test") ? "express.example.js" : undefined // force use example if travis-ci testing
+        (process.argv[2] === "--gdb-test") ? "express.example.js" : undefined // force use example if travis-ci testing
     ]);
     
-    for (var i = 0; i < config.length; i++) {
+    for (let i = 0; i < config.length; i++) {
         let key = (config[i].endsWith(".example.js")) 
         ? config[i].split(".example.js")[0] 
         : config[i].split(".js")[0];

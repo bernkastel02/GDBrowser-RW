@@ -1,3 +1,4 @@
+/*noinspection CssUnusedSymbol*/
 .gdButton {
     cursor: pointer;
     z-index: 1;
@@ -5,6 +6,7 @@
     pointer-events: all;
 }
 
+/*noinspection ALL*/
 .gdButton:active {
     transition-duration: 0.07s;
     transition-timing-function: ease-in-out;

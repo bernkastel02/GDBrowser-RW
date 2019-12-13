@@ -7,6 +7,6 @@ Router.get("/", (req,res) => {
     res.json({
         message: "Hi!"
     })
-})
+});
 
 module.exports = Router;
