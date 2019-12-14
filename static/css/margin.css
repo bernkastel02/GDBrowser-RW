@@ -17,3 +17,20 @@
 .corner_piece {
     position: sticky;
 }
+
+/* Sideways space */
+.sideSpace {
+    margin-left: 2%;
+}
+
+.sideSpaceB {
+    margin-left: 4%;
+}
+
+.sideSpaceC {
+    margin-left: 1%;
+}
+
+.sideSpaceD {
+    margin-left: 25%;
+}

@@ -7,8 +7,8 @@ block content
     include partials/corners
 
     // Credits button
-    div(style="position:absolute; top: 1.7%; right: 2%; text-align: right; width: 10%;")
-        img(id="credits", class="gd_button", src="/assets/images/credits.png", width="60%")
+    div(style="position:absolute; top: 1.7%; right: 2%; text-align: right; width: 10%; z-index: 3;")
+        img(id="credits", class="gdButton", src="/assets/images/buttons/credits.png", width="60%", onclick="loadCredits()")
 
 
     div(class="supercenter" id="menu" style="bottom: 5%;")
@@ -18,3 +18,7 @@ block content
         img(class="gdb_logo", src="/assets/images/gd_logo.png", height="11.5%")
         br
         img(class="gdb_sublogo", src="/assets/images/gdb_sublogo.png", height="8%")
+
+    
+    script
+        include ../static/js/credits.js

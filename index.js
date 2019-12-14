@@ -1,10 +1,16 @@
 const path = require("path");
 const fs = require("fs");
-const Util = require(path.resolve(`${__dirname}/lib/util/Util`))
+const Util = require(path.resolve(`${__dirname}/lib/util/Util`));
+const Logger = Util.Logger;
 
 // Application & all setup
 const app = require("express")();
-app.gdb_config = {}
+
+app.gdb_config = {};
+app.Util = Util;
+
+// config loading (important!)
+loadConfig();
 
 // static files
 app.use("/assets", require("express").static(path.resolve(`${__dirname}/static`)));
@@ -17,36 +23,48 @@ app.set("view engine", "pug");
 fs.readdir(path.resolve(`${__dirname}/routers`), (err, files) => {
     if (err) throw err;
 
+    // base
+    Logger.log("Loading routers...").empty();
+
     files.forEach((routerPath) => {
         let router = require(path.resolve(`${__dirname}/routers/${routerPath}`));
 
-        app.use(router.path || "/", router);
+        // try route
+        try {
+            // if router.path is not defined
+            if (!router.path)
+                Logger.warn(`Router "${routerPath.split(".")[0]}" did not have a path set, using default: "${app.gdb_config["express"].default_path || "/"}"`)
+            
+            app.use(router.path || (app.gdb_config["express"].default_path || "/"), router);
+            Logger.log("Loaded router/controller: " + require("chalk").green(routerPath.split(".")[0]));
+        } catch(e) {
+            Logger.error("Could not load: " + routerPath.split(".")[0]);
+        }
     })
-})
-
-// set locals
-app.use((req, res, next) => {
-    // set global locals so pug can use thel
-    res.locals.require = require;
-    res.locals.__dirname = __dirname;
-    next()
 })
 
 // settings
 app.set("json spaces", 4);
 
-// config loading
-loadConfig();
+// set locals
+app.use((req, res, next) => {
+    // set global locals so pug can use them
+    res.locals.require = require;
+    res.locals.__dirname = __dirname;
+
+    next();
+})
 
 // express listener
 app.listen((app.gdb_config["express"]) 
 ? app.gdb_config["express"].port // use port if example config was correctly edited
-: Util.throwError(new SyntaxError("Express configuration not found.")), () => {
-    console.log("express server ready");
+: Util.throwError(new SyntaxError("Express configuration not found, or you didn't rename the example configuration.")), () => {
+    Logger.log("Express server loaded!");
 
     // successful test
     if (process.argv[2] == "--gdb-test") return process.exit(0);
 })
+
 /* WARNING: Don't edit below unless you really know what you're doing! */
 async function loadConfig() {
     let config = Util.resolveFiles(`${__dirname}/config/`, 
@@ -67,3 +85,13 @@ async function loadConfig() {
         }
     }
 }
+
+// error logging
+process.on("error", (err) => {
+    Logger.error("An unexpected error has occured: " + err.message)
+})
+
+process.on("unhandledRejection", (err) => {
+    Logger.error("An unexpected error has occured: " + err.message)
+})
+
