@@ -1,2 +1,3 @@
 views/*.pug linguist-detectable=true
-view/s*.pug linguist-language=Pug
+views/*.pug linguist-language=Pug
+views/*.pug linguist-vendored=Pug
